@@ -1,0 +1,44 @@
+//dark theme
+$main_background_dark: #212427;
+$second_background_dark: #282c31;
+$font_color_primary_dark: #cacaca;
+$font_color_secondary_dark: #979797;
+$border_color_dark: #4d4d4d;
+$icons_color_dark: #dfe6f1;
+
+// transformacion a variables css
+.dark-theme {
+  --main_background: #{$main_background_dark};
+  --second_background: #{$second_background_dark};
+  --font_color_primary: #{$font_color_primary_dark};
+  --font_color_secondary: #{$font_color_secondary_dark};
+  --border_color: #{$border_color_dark};
+  --icons_color: #{$icons_color_dark};
+}
+
+//light theme
+$main_background: #eff3f9;
+$second_background: #fdfdff;
+$font_color_primary: #4f4f4f;
+$font_color_secondary: #979797;
+$border_color: #ebebeb;
+$icons_color: #afbbce;
+
+$emphasis1: #7f7fd5;
+$emphasis2: #e786d7;
+
+//transformacion a variables css
+.light-theme {
+  --main_background: #{$main_background};
+  --second_background: #{$second_background};
+  --font_color_primary: #{$font_color_primary};
+  --font_color_secondary: #{$font_color_secondary};
+  --border_color: #{$border_color};
+  --icons_color: #{$icons_color};
+}
+//z-index
+$back: -10;
+$normal: 1;
+$tooltip: 10;
+$fixed: 100;
+$modal: 1000;

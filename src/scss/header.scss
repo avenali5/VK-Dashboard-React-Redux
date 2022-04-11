@@ -1,0 +1,208 @@
+@import "./variables.scss";
+.whole-header-container {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  .header-container {
+    width: 100%;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    .burguer {
+      flex: 2;
+      cursor: pointer;
+      svg {
+        path {
+          fill: var(--font_color_primary);
+        }
+      }
+    }
+    h2 {
+      position: absolute;
+      bottom: 0;
+      transform: translateY(100%);
+      color: var(--font_color_primary);
+    }
+    .search-bar {
+      position: absolute;
+      bottom: 0;
+      transform: translateY(250%);
+      width: 94%;
+      input {
+        width: 100%;
+        padding: 0.6rem;
+        padding-left: 2rem;
+        border-radius: 0.6rem;
+        border: none;
+        outline: none;
+        border: 1px solid var(--border_color);
+        background: var(--second_background);
+        color: var(--font_color_primary);
+      }
+      svg {
+        position: absolute;
+        left: 0.7rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    .logo {
+      flex: 2;
+    }
+    .notifications {
+      position: relative;
+      margin-right: 1rem;
+      svg {
+        cursor: pointer;
+      }
+      .notifications-container {
+        background: var(--second_background);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        position: absolute;
+        bottom: -0.5rem;
+        right: 0;
+        transform: translateY(100%);
+        border-radius: 0.8rem;
+        padding: 0.8rem;
+        min-width: 18rem;
+        display: none;
+        transform: scale(0.7);
+        opacity: 0.4;
+        transform-origin: right 250%;
+        animation: showUp 0.4s forwards;
+
+        h4 {
+          color: var(--font_color_primary);
+          margin-bottom: 1rem;
+          font-size: 1.1rem;
+        }
+        .notification {
+          background: var(--main_background);
+          border-radius: 0.7rem;
+          width: 100%;
+          padding: 0.6rem;
+          opacity: 0.6;
+
+          .name {
+            position: relative;
+            color: var(--font_color_primary);
+          }
+          .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.6rem;
+            color: var(--font_color_secondary);
+            font-size: 0.8rem;
+            .see-more {
+              cursor: pointer;
+              font-weight: bold;
+            }
+          }
+          &:nth-child(1) {
+            margin-bottom: 0.4rem;
+            opacity: 1;
+            .name {
+              position: relative;
+              &::before {
+                content: "";
+                background: $emphasis1;
+                border-radius: 200px;
+                height: 0.6rem;
+                width: 0.6rem;
+                position: absolute;
+                top: 50%;
+                right: -4rem;
+                transform: translate(0%, -50%);
+              }
+            }
+          }
+          &:hover {
+            filter: brightness(0.9);
+          }
+        }
+      }
+      .open-notif {
+        display: block;
+      }
+    }
+    .profile {
+      cursor: pointer;
+      .name {
+        display: none;
+      }
+      svg {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .whole-header-container {
+    .header-container {
+      justify-content: flex-start;
+      .burguer {
+        display: none;
+      }
+      h2 {
+        position: relative;
+        transform: translate(0);
+      }
+      .logo {
+        display: none;
+      }
+      .search-bar {
+        position: relative;
+        transform: translate(0);
+        width: fit-content;
+        max-width: 15rem;
+        margin: 0 2rem;
+        svg{
+          pointer-events: none;
+        }
+
+        input{
+          
+          width: .3rem;
+          padding-left: 1.4rem;
+          transition: .3s all;
+          &:focus{
+            padding-left: 2rem;
+            width: 100%;
+          }
+        }
+      }
+      .notifications {
+        .notifications-container {
+          transform-origin: left 250%;
+          left: 0;
+          right: initial;
+        }
+      }
+      .profile {
+        position: absolute;
+        right: 1rem;
+        .name {
+          display: block;
+          color: var(--font_color_primary);
+        }
+        img {
+          margin: 0 1rem;
+        }
+        svg {
+          display: block;
+          path {
+            fill: var(--font_color_secondary);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes showUp {
+  to {
+    transform: scale(1) translateY(100%);
+    opacity: 1;
+  }
+}

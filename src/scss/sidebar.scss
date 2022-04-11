@@ -1,0 +1,160 @@
+@import "./variables.scss";
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  background: var(--second_background);
+  padding: 2rem;
+  min-height: 100vh;
+  width: 50%;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.05);
+  transition: 0.5s all;
+  transform: translateX(-120%);
+  z-index: 1000;
+  .close-menu {
+    right: 2rem;
+    top: 1.8rem;
+    cursor: pointer;
+    svg {
+      path {
+        fill: var(--font_color_primary);
+      }
+    }
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    a {
+      cursor: pointer;
+      margin: 0.8rem 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      // border: 1px solid black;
+      position: relative;
+      svg {
+        flex: 1;
+        left: 0%;
+        transform: translateX(-30%);
+        path {
+          fill: var(--icons_color);
+        }
+      }
+      span {
+        margin-left: 1rem;
+        position: absolute;
+        right: -1rem;
+        transform: translateX(100%);
+        color: var(--icons_color);
+
+        font-weight: bold;
+      }
+      &.selected {
+        span {
+          color: $emphasis1;
+        }
+        svg {
+          path {
+            fill: $emphasis1 !important;
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(-200%, -50%);
+          height: 150%;
+          width: 100%;
+          background: $emphasis1;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+  .switch {
+    background: url("../components/sidebar/assets/night.jpg") no-repeat center
+      center/cover;
+    border-radius: 200px;
+    height: 2.5rem;
+    width: 5rem;
+    position: relative;
+    cursor: pointer;
+    flex: 1;
+    &.switcher-night {
+      background: url("../components/sidebar/assets/day.jpg") no-repeat center
+        center/cover;
+      .ball {
+        transform: translate(120%, -50%);
+      }
+    }
+    .ball {
+      background: white;
+      height: 2rem;
+      width: 2rem;
+      position: absolute;
+      left: 0.3rem;
+      border-radius: 200px;
+      top: 50%;
+      transform: translate(0, -50%);
+      transition: 0.4s all;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.25);
+    }
+  }
+  input {
+    display: none;
+  }
+}
+@media (min-width: 1300px) {
+  aside {
+    transform: translateX(0) !important;
+    min-width: none;
+    width: fit-content;
+    align-items: center;
+    border-right: 1px solid var(--border_color);
+    padding: 3rem 1rem;
+    box-shadow: none;
+    .close-menu {
+      display: none;
+    }
+    nav {
+      svg {
+        flex: 1;
+        left: 0%;
+        transform: translateX(0%) !important;
+      }
+      span {
+        display: none;
+      }
+      a {
+        &.selected {
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-210%, -50%);
+            height: 150%;
+            width: 100%;
+            background: $emphasis1;
+            border-radius: 0.5rem;
+          }
+        }
+      }
+    }
+
+    .switch {
+      width: 4rem;
+      height: 1.8rem;
+      .ball {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+  }
+}

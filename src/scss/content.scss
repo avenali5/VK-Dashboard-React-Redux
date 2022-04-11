@@ -1,0 +1,193 @@
+@import "./variables.scss";
+.whole-content-container {
+  margin-top: 8rem;
+  margin-bottom: 1rem;
+  .content-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    article {
+      background: var(--second_background);
+      margin: 0.5rem 1rem;
+      border: 1px solid var(--border_color);
+      border-radius: 1rem;
+      padding: 0.7rem;
+      width: 100%;
+      // max-width: 30rem;
+      font-size: 1.2rem;
+      position: relative;
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        h3 {
+          color: var(--font_color_primary);
+        }
+        .options {
+          top: 0.7rem;
+          right: 0.7rem;
+          cursor: pointer;
+        }
+      }
+      .values {
+        display: flex;
+        color: var(--font_color_primary);
+        justify-content: space-between;
+        .progress {
+          color: var(--font_color_secondary);
+        }
+        svg {
+          margin-left: 0.5rem;
+          path {
+            stroke-dasharray: 20;
+            stroke-dashoffset: 20;
+            animation: dash 0.9s 2s linear forwards;
+          }
+        }
+      }
+      canvas {
+        max-width: 100%;
+      }
+      &:hover {
+        filter: brightness(0.96);
+      }
+      &.device-box {
+        canvas {
+          max-width: 100%;
+          max-height: 15rem;
+        }
+      }
+
+      &.geo-box {
+        position: relative;
+        .labels {
+          position: absolute;
+          top: 1.5rem;
+          right: 1.5rem;
+          span {
+            margin-left: 1rem;
+            color: var(--font_color_primary);
+            opacity: 0.4;
+            cursor: pointer;
+          }
+          .geo-active {
+            // font-weight: bold;
+            opacity: 1 !important;
+          }
+        }
+
+        .values {
+          display: flex;
+          flex-wrap: wrap;
+
+          .country {
+            width: 45%;
+            margin: 0.5rem;
+            .title {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .name {
+                color: var(--font_color_primary) !important;
+              }
+              .number {
+                color: var(--font_color_secondary) !important;
+              }
+            }
+            .progress {
+              background: var(--border_color);
+              width: 100%;
+              height: 1rem;
+              border-radius: 200px;
+              margin-top: 0.5rem;
+              position: relative;
+              overflow: hidden;
+              .value {
+                background: $emphasis1;
+                width: 0%;
+                transform: translateX(-100%);
+                position: absolute;
+                height: 100%;
+                border-radius: 200px;
+                animation: fill 1s 0.4s forwards;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .whole-content-container {
+    .content-container {
+      display: grid !important;
+      padding: 1rem;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 1fr;
+      gap: 1.5rem;
+
+      article {
+        padding: 1.3rem;
+        font-size: 1rem;
+        border-radius: 1rem;
+        &.friends-box {
+          grid-column: 1 / 3;
+        }
+        &.visitors-box {
+          grid-column: 3 / 5;
+        }
+        &.followers-box {
+          grid-column: 5 / 7;
+        }
+        &.audience-box {
+          grid-column: 1 / 6;
+          // max-width: 30rem;
+
+          canvas {
+            width: 100%;
+            max-height: 13rem;
+          }
+        }
+        &.device-box {
+          grid-column: 6 / 7;
+          min-width: 20rem;
+          canvas {
+            width: 100%;
+            max-height: 13rem;
+          }
+        }
+        &.gender-age-box {
+          grid-column: 1 / 5;
+
+          canvas {
+            width: 100%;
+            max-height: 15rem;
+          }
+        }
+        &.geo-box {
+          grid-column: 5 / 7;
+          grid-template-rows: 4/5;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1300px) {
+  .whole-content-container {
+    margin-top: 2rem;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fill {
+  to {
+    width: 100%;
+  }
+}

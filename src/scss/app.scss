@@ -1,0 +1,75 @@
+@import "./variables.scss";
+@font-face {
+  font-family: Almarai-light;
+  src: url("../fonts/Almarai-Light.ttf");
+}
+@font-face {
+  font-family: Almarai-regular;
+  src: url("../fonts/Almarai-Regular.ttf");
+}
+@font-face {
+  font-family: Almarai-bold;
+  src: url("../fonts/Almarai-Bold.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Almarai-regular";
+  transition: 0.4s all;
+}
+body {
+  background: var(--main_background);
+  user-select: none;
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+  .title {
+    font-family: "DM Sans", sans-serif;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  .bold {
+    font-weight: 700;
+  }
+  .main-button {
+    padding: 0.8rem 2rem;
+    // background: $background;
+    font-size: 1.2rem;
+    transition: 0.3s all;
+    color: white;
+    border-radius: 200px;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s all;
+  }
+  .main-button:hover {
+    filter: brightness(0.9);
+  }
+  .main-button:disabled {
+    opacity: 0.5;
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .relative {
+    position: relative;
+  }
+  .max-width {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 70rem;
+  }
+}
